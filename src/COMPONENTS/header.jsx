@@ -17,7 +17,7 @@ const Header = () => {
   const handlelogout = async () => {
     try {
       const res = axios.post(BASE_URL + "/logout", {
-
+       
       }, {
         withCredentials: true
       }

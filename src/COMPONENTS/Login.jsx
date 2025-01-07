@@ -19,9 +19,10 @@ const Login = () => {
       emailId : email,
       password : password
     },{
-     
+      withCredentials : true,
 
-    },{withCredentials : true})
+    },{
+    })
     console.log(data)
     dispatch(addUser(data.data))
     navigate("/")

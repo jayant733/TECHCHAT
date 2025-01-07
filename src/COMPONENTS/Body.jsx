@@ -16,12 +16,17 @@ const Body = () => {
   const fetchUser = async () => {
     if(userdata) return
     try {
-      const token = localStorage.getItem("token"); // or sessionStorage
-      const profile = await axios.get(BASE_URL + "/profile/view", {
+      const token = localStorage.getItem("token");
+       // or sessionStorage
+      console.log(token)
+       const profile = await axios.get(BASE_URL + "/profile/view", {
         headers: {
           Authorization: `Bearer ${token}`, // Add token to header
-        },
-        withCredentials: true,
+        }, withCredentials : true,
+      
+       
+      },{ 
+       
       });
       console.log(profile);
       dispatch(addUser(profile.data));
