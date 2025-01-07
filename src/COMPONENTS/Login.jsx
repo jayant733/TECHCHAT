@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { addUser } from '../Utils/userslice'
@@ -8,7 +8,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = React.useState('test123@gmail.com')
   const [password, setPassword] = React.useState('test@123T')
-
+  const [error , seterror] = useState('');
   const dispatch = useDispatch()
   const handleclickbutton = async ()=>{
     try {
@@ -19,15 +19,16 @@ const Login = () => {
       emailId : email,
       password : password
     },{
-     withCredentials : true
+     
 
-    })
+    },{withCredentials : true})
     console.log(data)
     dispatch(addUser(data.data))
     navigate("/")
 
     }catch(err){
-      console.log(err.message)
+      seterror(err?.response?.data)
+      console.log(err?.response.data)
     }
     
   }
@@ -61,6 +62,7 @@ const Login = () => {
 
             </label>
           </div>
+          <p className='text-red-600'>{error} </p>
           <div className="card-actions justify-center py-4">
             <button className="btn btn-primary" onClick={()=>{
               handleclickbutton()

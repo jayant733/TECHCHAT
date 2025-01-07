@@ -57,3 +57,12 @@ benifit of store is there iot will refreshing by everyting that is including my 
 never call a hook inside the function 
 
 never hardcode your url at any point always create a util page to do that 
+
+the useselector hook will find or search for the data in the redux store 
+
+
+--> whenever i change the url in the locahost it will make the api call or whenever you refresh the page its gonna
+
+ update the api 
+
+ 
