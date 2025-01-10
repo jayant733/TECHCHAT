@@ -28,6 +28,7 @@ const Login = () => {
     navigate("/")
 
     }catch(err){
+      navigate("/error")
       seterror(err?.response?.data)
       console.log(err?.response.data)
     }
