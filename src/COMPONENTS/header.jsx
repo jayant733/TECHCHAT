@@ -97,7 +97,8 @@ const Header = () => {
                 </Link>
               </li>
               <li><a onClick={handlelogout}>Logout</a></li>
-              <li><a>Settings</a></li>
+              <li><Link to="/connections">My Connections</Link></li>
+              <li><Link to="/requests">Requests</Link></li>
             </ul>
           </div>
         </div>
