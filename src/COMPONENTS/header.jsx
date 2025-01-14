@@ -36,7 +36,7 @@ const Header = () => {
     <>
       <div className="navbar bg-base-300">
         <div className="flex-1">
-          <Link to="/" className="btn btn-ghost text-xl">DEVTINDER</Link>
+          <Link to="/" className="btn btn-ghost text-xl">DEVsoc</Link>
         </div>
         <div className="flex-none">
           <div className="dropdown dropdown-end">

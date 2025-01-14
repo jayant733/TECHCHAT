@@ -65,4 +65,7 @@ the useselector hook will find or search for the data in the redux store
 
  update the api 
 
+ in map whenever we give the id we give it to the main div
+ for not having error that each prop should have a uniques key value  
+
  

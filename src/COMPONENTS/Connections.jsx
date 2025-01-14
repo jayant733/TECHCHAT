@@ -42,7 +42,7 @@ const Connections = () => {
 
       <div >
         {connections.map((connect) => {
-          const { firstName, lastName, photoUrl, gender, age, about } = connect.fromUserId;
+          const {  _id , firstName, lastName, photoUrl, gender, age, about } = connect.fromUserId;
 
 
 
@@ -50,7 +50,7 @@ const Connections = () => {
 
           return (
 
-            <div>
+            <div key={_id}>
               <img src={photoUrl}></img>
               <h1 className='font-bold'>{
                 firstName

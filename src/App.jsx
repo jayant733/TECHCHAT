@@ -10,7 +10,8 @@ import appstore from "./Utils/appstore"
 import Feed from "./COMPONENTS/Feed"
 import Error from "./COMPONENTS/Error"
 import Connections from "./COMPONENTS/Connections"
-import Requests from "./COMPONENTS/Requests"
+
+import Requests from "./COMPONENTS/request"
 function App() {
   
 
