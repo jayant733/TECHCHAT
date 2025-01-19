@@ -42,7 +42,7 @@ const Connections = () => {
 
       <div >
         {connections.map((connect) => {
-          const {  _id , firstName, lastName, photoUrl, gender, age, about } = connect.fromUserId;
+          const {  _id , firstName, lastName, photoUrl, gender, age, about } = connect.toUserId;
 
 
 

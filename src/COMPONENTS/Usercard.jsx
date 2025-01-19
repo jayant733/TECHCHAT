@@ -1,25 +1,43 @@
-import React from 'react'
+import React from "react";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import { BASE_URL } from "../Utils/constants";
 
-const Usercard = ({user}) => {
-   const {firstName , lastName , photourl, age , gender , about } = user;
-   
-   return (
-    <div><div className="card card-compact bg-base-100 w-96 shadow-xl">
-    <figure>
-     
-     <img src={photourl} alt='default photo'></img>
-    </figure>
-    <div className="card-body">
-      <h2 className="card-title">{firstName + " " + lastName}</h2>
-        {age && gender && (<p>{age + " " + gender}</p>)}
-        <p>{about}</p>
-      <div className="card-actions justify-end">
-        <button className="btn bg-pink-600">Ignore</button>
-        <button className="btn bg-blue-700">Accept <br></br>Request</button>
-      </div>
-    </div>
-  </div></div>
-  )
-}
+import { removeFeed } from "../Utils/feedSlice";
 
-export default Usercard
+
+
+
+const RequestComponent = ({ user }) => {
+  const dispatch = useDispatch();
+  console.log(user)
+  const handlerequest = async (status, userId) => {
+    try {
+      const res = await axios.post(`${BASE_URL}/request/send/${status}/${userId}`, {}, {
+        withCredentials: true
+      });
+
+      // Handle the response (dispatch an action if needed)
+      console.log(res.data)
+      dispatch(removeFeed(res.data))
+    } catch (error) {
+      console.error("Error sending request:", error);
+    }
+  };
+
+  return (
+    <>
+      {user && (
+        <div>
+          <h2>User Request</h2>
+          <p>Name: {user.firstName}</p>
+          <p>Email: {user.emailId}</p>
+          <button onClick={() => handlerequest("accepted", user._id)}>Interested</button>
+          <button onClick={() => handlerequest("ignored", user._id)}>Rejected</button>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default RequestComponent;
